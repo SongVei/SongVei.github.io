@@ -358,6 +358,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/20/写给自己看2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/08/20/写给自己看2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -477,8 +487,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/11/写给自己看1/" rel="next" title="写给自己看1">
-                <i class="fa fa-chevron-left"></i> 写给自己看1
+              <a href="/2019/07/11/面经回忆1/" rel="next" title="回忆面经1">
+                <i class="fa fa-chevron-left"></i> 回忆面经1
               </a>
             
           </div>
@@ -518,6 +528,9 @@
 
           
 
+  
+    <div class="comments" id="comments">
+    </div>
   
 
 
@@ -857,6 +870,28 @@ setInterval("createtime()",250);
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: '1PybnDI8tGrX01RyGKuyjzLl-gzGzoHsz',
+        appKey: 'kYlUNNwqA6cEMyFmfYlydfCb',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
