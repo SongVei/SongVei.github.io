@@ -28,7 +28,7 @@ body {
     min-height: 100vh;
     position: relative;
     background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)),
-                url('./bg1.jpg') center/cover fixed;
+                url('./pic/bg1.jpg') center/cover fixed;
 }
 
 .container::before {
@@ -44,17 +44,8 @@ body {
 
 /* 侧边栏 */
 .sidebar {
-    /* width: 280px;
-    padding: 2rem;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    z-index: 2;
-    background: rgba(255, 255, 255, 0.08);
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-     */
-    flex: 0 0 35%;
-    max-width: 35%;
+    flex: 0 0 27%;
+    max-width: 27%;
     padding: 2rem;
     position: sticky;
     top: 0;
@@ -62,6 +53,13 @@ body {
     background: rgba(255, 255, 255, 0.08);
     border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+
+/* 悬停显示效果 */
+.sidebar:hover {
+    left: 0;
+}
+
 
 .list {
     margin-top: 6rem;
@@ -120,31 +118,56 @@ body {
 .contact {
     margin-top: 3rem;
 }
-
-.contact p {
+.contact-main {
+    text-decoration: none;
     color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 0.5rem;
+    /* margin-bottom: 0.5rem; */
 }
-
-.contact a {
+.contact-cv {
     color: var(--primary-color);
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: border-color var(--transition-timing);
 }
-
 .contact a:hover {
     border-color: currentColor;
 }
 
+
+/* 按钮样式 */
+.sidebar-toggle {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 1001;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+/* 侧边栏关闭状态（当active类被移除时） */
+.sidebar:not(.active) {
+    left: -27%; /* 隐藏侧边栏 */
+}
+
+/* 按钮悬停效果 */
+.sidebar-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
 /* 主内容区 */
 .main-content {
-    /* flex: 1;
+    flex: 1;
     padding: 3rem 4rem;
     z-index: 2;
     display: grid;
     grid-template-rows: auto 1fr;
-    gap: 2rem; */
+    gap: 2rem; 
     flex: 1;
     padding: 3rem 4rem;
     z-index: 2;
@@ -175,6 +198,7 @@ body {
     padding: 2rem;
     display: grid;
     gap: 1.5rem;
+    margin-bottom: 2rem; /* 在top-section底部添加间隔 */
 }
 
 .top-section h2 {
@@ -201,16 +225,6 @@ body {
     width: 2px;
     background: linear-gradient(transparent, var(--primary-color), transparent);
 }
-/* .top-section h2::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 2px;
-    background: currentColor;
-} */
 
 .top-section p {
     columns: 2 360px;
